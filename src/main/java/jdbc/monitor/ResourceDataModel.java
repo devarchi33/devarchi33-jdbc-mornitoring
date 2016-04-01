@@ -1,13 +1,13 @@
 package jdbc.monitor;
 
 /**
- * Å¬·¡½º °³¿ä.
+ * Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
  * <ul>
- * <li> ÀÛ¼ºÀÏ/ÀÚ: 2005. 9. 9
- * <li> ±â´É : JDBC ¸®¼Ò½ºÀÎ Connection,Statemenet,ResultSet Á¤º¸¸¦ ´ã¾Æ µÎ´Â µ¥ÀÌÅÍ ¸ðµ¨ÀÌ´Ù.
+ * <li> ï¿½Û¼ï¿½ï¿½ï¿½/ï¿½ï¿½: 2005. 9. 9
+ * <li> ï¿½ï¿½ï¿½ : JDBC ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ Connection,Statemenet,ResultSet ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
  * </ul>
  *
- * @author ¿ì°øÀÌ»ê
+ * @author ï¿½ï¿½ï¿½ï¿½Ì»ï¿½
  */
 public class ResourceDataModel {
     private String className = null;

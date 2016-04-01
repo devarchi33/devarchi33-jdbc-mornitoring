@@ -11,14 +11,16 @@ import javassist.NotFoundException;
 //Singleton
 
 
+
+
 /**
- * Å¬·¡½º °³¿ä.
+ * Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
  * <ul>
- * <li> ÀÛ¼ºÀÏ/ÀÚ: 2005. 9. 9
- * <li> ±â´É : ½Ì±ÛÅæ ÆÐÅÏÀ¸·Î ±¸ÇöÇÑ ¸Þ´ÏÀú Å¬·¡½ºÀÌ´Ù. ÀÌ Å¬·¡½º´Â °¢ ¸®¼Ò½ºÀÇ µî·Ï, Á¤º¸ ¼öÁý, ¸®Æ÷ÆÃ ÀÛ¾÷À» ÇÑ´Ù.
+ * <li> ï¿½Û¼ï¿½ï¿½ï¿½/ï¿½ï¿½: 2005. 9. 9
+ * <li> ï¿½ï¿½ï¿½ : ï¿½Ì±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½. ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
  * </ul>
  *
- * @author ¿ì°øÀÌ»ê
+ * @author ï¿½ï¿½ï¿½ï¿½Ì»ï¿½
  */
 public class MonitoringManager {
 
@@ -34,7 +36,7 @@ public class MonitoringManager {
     private HashMap connectionList;
 
     // Log Writer 
-    // TODO: ³ªÁß¿¡ Log4J·Î ¹Ù²ã¾ß °ÚÁö...
+    // TODO: ï¿½ï¿½ï¿½ß¿ï¿½ Log4Jï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...
     private Log log;
 
     // Key:Value - Statement:ResourceDataModel
@@ -42,10 +44,10 @@ public class MonitoringManager {
 
     // Key:Value - Sql String:SQLExecDataModel Class
     private HashMap sqlList;
-    
+
     // Key:Value - Statement:ResourceDataModel
     private HashMap statementList;
-    
+
     private MonitoringManager() {
         this.sqlList = new HashMap();
         this.connectionList = new HashMap();
@@ -73,7 +75,7 @@ public class MonitoringManager {
     public HashMap getStatementList() {
         return statementList;
     }
-    
+
     public void init() {
         this.initOracle();
         this.initMySql();
@@ -90,9 +92,9 @@ public class MonitoringManager {
             factory.amendStatement("com.mysql.jdbc.ServerPreparedStatement");
             factory.amendResultSet("com.mysql.jdbc.ResultSet");
         } catch (NotFoundException e) {
-            log.println("MonitoringManager.initMySql","Not Found");
+            log.println("MonitoringManager.initMySql", "Not Found");
         } catch (CannotCompileException e) {
-            log.println("MonitoringManager.initMySql","Can not Compile" + e.getReason());
+            log.println("MonitoringManager.initMySql", "Can not Compile " + e.getReason());
         }
     }
 
@@ -106,9 +108,9 @@ public class MonitoringManager {
             factory.amendStatement("oracle.jdbc.driver.OracleCallableStatement");
             factory.amendResultSet("oracle.jdbc.driver.OracleResultSetImpl");
         } catch (NotFoundException e) {
-            log.println("MonitoringManager.initOracle","Not Found");
+            log.println("MonitoringManager.initOracle", "Not Found");
         } catch (CannotCompileException e) {
-            log.println("MonitoringManager.initOracle","Can not Compile" + e.getReason());
+            log.println("MonitoringManager.initOracle", "Can not Compile " + e.getReason());
         }
     }
 
@@ -141,7 +143,7 @@ public class MonitoringManager {
             time = stmt.getClass().getField("__execTime").getLong(stmt);
             conn = stmt.getConnection();
         } catch (Exception sqle) {
-            log.println("MonitoringManager.registerExecData",sqle);
+            log.println("MonitoringManager.registerExecData", sqle);
             return;
         }
         if (sql == null)
@@ -155,7 +157,7 @@ public class MonitoringManager {
             sqlList.put(sql, data);
         }
         data.registerExec(time);
-        // µî·ÏÇß´Ù°¡ Close ¶§ Á¦°ÅÇÑ´Ù...
+        // ï¿½ï¿½ï¿½ï¿½ß´Ù°ï¿½ Close ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½...
         registerConnectionData(conn, sql);
         registerStatementData(stmt, sql);
     }

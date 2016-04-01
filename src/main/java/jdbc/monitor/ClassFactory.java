@@ -10,17 +10,17 @@ import javassist.Modifier;
 import javassist.NotFoundException;
 
 /**
- * Å¬·¡½º °³¿ä.
+ * Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
  * <ul>
- * <li> ÀÛ¼ºÀÏ/ÀÚ: 2005. 9. 9 - ±èÁ¾È£
- * <li> ±â´É : ¸ð´ÏÅÍ¸µÀ» À§ÇØ JDBC ¸®¼Ò½ºÀÎ Connection, Statement, ResultSetÀ» ¹ÙÀÌ³Ê¸® ¼öÁØ¿¡¼­ ¼öÁ¤ÇÑ´Ù.
- * »ðÀÔµÇ´Â ÄÚµå´Â ½ÇÇà¿¡ ÃÖ¼ÒÇÑÀÇ ¿µÇâÀ» ÁØ´Ù.
+ * <li> ï¿½Û¼ï¿½ï¿½ï¿½/ï¿½ï¿½: 2005. 9. 9 - ï¿½ï¿½ï¿½ï¿½È£
+ * <li> ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ JDBC ï¿½ï¿½ï¿½Ò½ï¿½ï¿½ï¿½ Connection, Statement, ResultSetï¿½ï¿½ ï¿½ï¿½ï¿½Ì³Ê¸ï¿½ ï¿½ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+ * ï¿½ï¿½ï¿½ÔµÇ´ï¿½ ï¿½Úµï¿½ï¿½ ï¿½ï¿½ï¿½à¿¡ ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½.
  * </ul>
  *
- * @author ¿ì°øÀÌ»ê
+ * @author ï¿½ï¿½ï¿½ï¿½Ì»ï¿½
  */
 
-// Ctrl-Shift-F Å¬¸¯ÇÏÁö ¸¶¶ó...¼Ò½º ÄÚµå Çã¶ß·ÁÁø´Ù..
+// Ctrl-Shift-F Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½...ï¿½Ò½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½..
 public class ClassFactory {
     Log log = null;
     public ClassFactory() {
@@ -31,13 +31,13 @@ public class ClassFactory {
      * @param className
      * @throws NotFoundException
      * @throws CannotCompileException
-     * ¼öÁ¤ ÇÏ´Â ºÎºÐ
+     * ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Îºï¿½
      * <ul>
-     * <li> ¸®ÅÏ Å¸ÀÔÀÌ java.sql.StatementÀÌ¸ç Ã¹¹øÂ° ÀÎÀÚ°¡ String ÀÌ¸é, ÀÌ´Â ¿¹¸¦ µé¸é 
-     * <code>PreparedStatement prepareStatement(String sql)</code> ÀÎµ¥...
-     * ÀÌ ¸Þ¼Òµå°¡ ¸®ÅÏÇÏ´Â Statement¿¡ ½É¾î³í __sqlString¿¡ sql ¹®À» ÀúÀåÇÑ´Ù.
-     * ³ªÁß¿¡ execute½Ã¿¡ ÀÌ __sqlStringÀ» ¾µ °ÍÀÓ.
-     * <li> close ¸Þ¼Òµå¿¡ ´ÝÇûÀ½À» µî·ÏÇÏ´Â ÄÚµå¸¦ »ðÀÔÇÑ´Ù.
+     * <li> ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ java.sql.Statementï¿½Ì¸ï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½Ú°ï¿½ String ï¿½Ì¸ï¿½, ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+     * <code>PreparedStatement prepareStatement(String sql)</code> ï¿½Îµï¿½...
+     * ï¿½ï¿½ ï¿½Þ¼Òµå°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Statementï¿½ï¿½ ï¿½É¾ï¿½ï¿½ __sqlStringï¿½ï¿½ sql ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+     * ï¿½ï¿½ï¿½ß¿ï¿½ executeï¿½Ã¿ï¿½ ï¿½ï¿½ __sqlStringï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+     * <li> close ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
      * </ul>
      */
     public void amendConnection(String className) throws NotFoundException, CannotCompileException {
@@ -48,7 +48,7 @@ public class ClassFactory {
         
         cc = cp.get(className);
         
-        // Connection Å¸ÀÔÀÏ °æ¿ì¿¡¸¸ ÀÛ¾÷ÇÑ´Ù.
+        // Connection Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½Ñ´ï¿½.
         if(! cc.subtypeOf(cp.get("java.sql.Connection"))){
             log.println("MonitoringManager.amendConnection",className + ":Type(java.sql.Connection) mismatch");
             return;
@@ -59,9 +59,9 @@ public class ClassFactory {
             CtMethod m = ms[i];
             if(! Modifier.isPublic(m.getModifiers())) continue;
             
-            // Statement ¹× ±× ¾Æ·ù¸¦ ¸®ÅÏÇÏ´Â ¸ðµç ¸Þ¼Òµå¸¦ Ã£´Â´Ù.
-            // Æ¯È÷ ¿©±â¼­´Â sql stringÀ» statement¿¡ ÀúÀåÇØ¾ß ÇÏ±â ¶§¹®¿¡
-            // ÀÎ¼ö°¡ StringÀÎ ³à¼®À» °ñ¶ó³½´Ù.
+            // Statement ï¿½ï¿½ ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½Þ¼Òµå¸¦ Ã£ï¿½Â´ï¿½.
+            // Æ¯ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ sql stringï¿½ï¿½ statementï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            // ï¿½Î¼ï¿½ï¿½ï¿½ Stringï¿½ï¿½ ï¿½à¼®ï¿½ï¿½ ï¿½ï¿½ó³½´ï¿½.
             if (m.getReturnType().subtypeOf(cp.get("java.sql.Statement"))) {
                 CtClass[] paras = m.getParameterTypes();
                 if (paras.length > 0) {
@@ -75,7 +75,7 @@ public class ClassFactory {
                 }
             }
             
-            // Close½Ã¿¡ ³»°¡ ´ÝÇûÀ½À» ³Î¸® ¾Ë¸°´Ù.
+            // Closeï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½.
             if(m.getName().equals("close")){
                 String code = "{ "
                             + " jdbc.monitor.MonitoringManager manager = jdbc.monitor.MonitoringManager.getInstance(); "
@@ -94,19 +94,19 @@ public class ClassFactory {
      * @param className
      * @throws NotFoundException
      * @throws CannotCompileException
-     * ¼öÁ¤ ÇÏ´Â ºÎºÐ
+     * ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Îºï¿½
      * <ul>
-     * <li> private __isExecuted¶ó´Â ¸â¹öº¯¼ö¸¦ ¼³Á¤ÇÏ¿© »ó¼Ó¿¡ ÀÇÇÑ µÎ¹ø ½ÇÇàÀ» ¿¹¹æÇÑ´Ù.
-     * <li> public __sqlString¶ó´Â ¸â¹ö º¯¼ö¸¦ ¼³Á¤ÇÏ¿© ÇØ´ç Statement°¡ ½ÇÇàÇÑ SQLÀ» ÀúÀåÇÑ´Ù. 
-     * SQLÀº Å©°Ô µÎ °÷¿¡¼­ ¼³Á¤ÀÌ µÇ´Âµ¥ Statement¸¦ ¾òÀ» ¿Ã ¶§ ¿¹¸¦ µé¸é 
-     * <code>PreparedStatement Connection.prepareStatement(String sql)</code>°ú °°ÀÌ Connection´Ü¿¡¼­³ª
-     * ¾Æ´Ï¸é <code>ResultSet Statement.executeQuery(String sql)  </code>°ú °°ÀÌ Statement ³»ºÎ ¸Þ¼­µå¿¡¼­ ÀÌ´Ù.
-     * °¢°¢ ¼³Á¤ÇÏ´Â °÷ÀÌ ´Ù¸£¹Ç·Î À¯ÀÇÇØ¾ß ÇÑ´Ù.
-     * <li> public __execTime¿¡´Â ½ÇÇàµÈ ½Ã°£ÀÌ µé¾î°£´Ù. ¹°·Ð MonitoringManager¸¦ ÅëÇØ¼­µµ ÇÒ ¼ö ÀÖÁö¸¸, ¼Óµµ¸¦ À§ÇØ 
-     * ÀÌ ¹æ¹ýÀ» ½è´Ù.
-     * <li> execute·Î ½ÃÀÛÇÏ°í ÀÎ¼ö°¡ StringÀÎ ¸Þ¼Òµå´Â SqlÀ» ½ÇÇàÇÏ´Â °ÍÀÌ¹Ç·Î ¿©±â¿¡ ¸Â´Â ÄÚµå¸¦ »ðÀÔÇÑ´Ù.
-     * <li> ResultSetÀ» ¸®ÅÏÇÏ´Â ¸Þ¼Òµå 2°³¿¡ ResultSetÀ» µî·ÏÇÏ´Â ÄÚµå¸¦ »ðÀÔÇÑ´Ù.
-     * <li> close ¸Þ¼Òµå¿¡ ´ÝÇûÀ½À» µî·ÏÇÏ´Â ÄÚµå¸¦ »ðÀÔÇÑ´Ù.
+     * <li> private __isExecutedï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+     * <li> public __sqlStringï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ø´ï¿½ Statementï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ SQLï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
+     * SQLï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´Âµï¿½ Statementï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ 
+     * <code>PreparedStatement Connection.prepareStatement(String sql)</code>ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Connectionï¿½Ü¿ï¿½ï¿½ï¿½ï¿½ï¿½
+     * ï¿½Æ´Ï¸ï¿½ <code>ResultSet Statement.executeQuery(String sql)  </code>ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Statement ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½Ì´ï¿½.
+     * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
+     * <li> public __execTimeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½î°£ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ MonitoringManagerï¿½ï¿½ ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+     * ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
+     * <li> executeï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Î¼ï¿½ï¿½ï¿½ Stringï¿½ï¿½ ï¿½Þ¼Òµï¿½ï¿½ Sqlï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½Â´ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+     * <li> ResultSetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½ 2ï¿½ï¿½ï¿½ï¿½ ResultSetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+     * <li> close ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
      * </ul>
      */
     public void amendStatement(String className) throws NotFoundException, CannotCompileException {
@@ -117,7 +117,7 @@ public class ClassFactory {
         
         cc = cp.get(className);
         
-        // Statement Å¸ÀÔÀÏ °æ¿ì¿¡¸¸ ÀÛ¾÷ÇÑ´Ù.
+        // Statement Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½Ñ´ï¿½.
         if(! cc.subtypeOf(cp.get("java.sql.Statement"))){
             log.println("MonitoringManager.amendStatement",className + ":Type(java.sql.Statement) mismatch");
             return;
@@ -125,11 +125,11 @@ public class ClassFactory {
         
         CtMethod[] ms = cc.getDeclaredMethods();
 
-        // Field ½É±â....
-        // »ó¼Ó¹ÞÀ» ¼ö ÀÖÀ¸¹Ç·Î, ÀÖÀ¸¸é ¾È ¸¸µç´Ù...
+        // Field ï¿½É±ï¿½....
+        // ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½...
         CtField cf;
         try {
-            cf = cc.getDeclaredField("__isExecuted");//ÇÏÀ§ Å¬·¡½º±îÁö Ã£´Â´Ù...
+            cf = cc.getDeclaredField("__isExecuted");//ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½...
         } catch (NotFoundException nfe) {
             cf = new CtField(CtClass.booleanType, "__isExecuted", cc);
             cf.setModifiers(Modifier.PRIVATE);
@@ -137,7 +137,7 @@ public class ClassFactory {
             log.println("MonitoringManager.amendStatement",className + ":__isExecuted Is Successfully Added!");
         }
         try {
-            cf = cc.getField("__sqlString");//ÇÏÀ§ Å¬·¡½º±îÁö Ã£´Â´Ù...
+            cf = cc.getField("__sqlString");//ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½...
         } catch (NotFoundException nfe) {
             cf = new CtField(ClassPool.getDefault().get("java.lang.String"), "__sqlString", cc);
             cf.setModifiers(Modifier.PUBLIC);
@@ -145,7 +145,7 @@ public class ClassFactory {
             log.println("MonitoringManager.amendStatement",className + ":__sqlString Is Successfully Added!");
         }
         try {
-            cf = cc.getField("__execTime");//ÇÏÀ§ Å¬·¡½º±îÁö Ã£´Â´Ù...
+            cf = cc.getField("__execTime");//ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½...
         } catch (NotFoundException nfe) {
             cf = new CtField(CtClass.longType, "__execTime", cc);
             cf.setModifiers(Modifier.PUBLIC);
@@ -197,7 +197,7 @@ public class ClassFactory {
                     log.println("MonitoringManager.amendStatement",className + ":" + m.getName() + "Is Successfully Amended!");
                 }
             }
-            // ResultsetÀ» ¸®ÅÏÇÏ´Â ¸Þ¼Òµå Ã³¸®...
+            // Resultsetï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼Òµï¿½ Ã³ï¿½ï¿½...
             //if (m.getReturnType() == ClassPool.getDefault().get("java.sql.ResultSet")) {
             if (m.getName().equals("executeQuery") || m.getName().equals("getResultSet")) {
                 //System.out.println("ResultSet Return:" + m.getName());
@@ -222,9 +222,9 @@ public class ClassFactory {
      * @param className
      * @throws NotFoundException
      * @throws CannotCompileException
-     * ¼öÁ¤ ÇÏ´Â ºÎºÐ
+     * ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Îºï¿½
      * <ul>
-     * <li> close ¸Þ¼Òµå¿¡ ´ÝÇûÀ½À» µî·ÏÇÏ´Â ÄÚµå¸¦ »ðÀÔÇÑ´Ù.
+     * <li> close ï¿½Þ¼Òµå¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
      * </ul>
      */
     public void amendResultSet(String className) throws NotFoundException, CannotCompileException {
@@ -235,7 +235,7 @@ public class ClassFactory {
         
         cc = cp.get(className);
 
-        // ResultSet Å¸ÀÔÀÏ °æ¿ì¿¡¸¸ ÀÛ¾÷ÇÑ´Ù.
+        // ResultSet Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½Ñ´ï¿½.
         if(! cc.subtypeOf(cp.get("java.sql.ResultSet"))){
             log.println("MonitoringManager.amendResultSet","jType(java.sql.ResultSet) mismatch");
             return;
