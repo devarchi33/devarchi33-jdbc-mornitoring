@@ -8,20 +8,6 @@ import java.util.HashMap;
 import javassist.CannotCompileException;
 import javassist.NotFoundException;
 
-//Singleton
-
-
-
-
-/**
- * Ŭ���� ����.
- * <ul>
- * <li> �ۼ���/��: 2005. 9. 9
- * <li> ��� : �̱��� �������� ������ �޴��� Ŭ�����̴�. �� Ŭ������ �� ���ҽ��� ���, ���� ����, ������ �۾��� �Ѵ�.
- * </ul>
- *
- * @author ����̻�
- */
 public class MonitoringManager {
 
     private static MonitoringManager _instance;

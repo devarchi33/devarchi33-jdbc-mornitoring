@@ -1,14 +1,5 @@
 package jdbc.monitor;
 
-/**
- * Ŭ���� ����.
- * <ul>
- * <li> �ۼ���/��: 2005. 9. 9
- * <li> ��� : JDBC ���ҽ��� Connection,Statemenet,ResultSet ������ ��� �δ� ������ ���̴�.
- * </ul>
- *
- * @author ����̻�
- */
 public class ResourceDataModel {
     private String className = null;
 

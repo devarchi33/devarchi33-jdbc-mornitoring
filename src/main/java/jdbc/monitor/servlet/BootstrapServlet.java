@@ -9,16 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import jdbc.monitor.MonitoringManager;
 
-/**
- * Ŭ���� ����.
- * <ul>
- * <li> �ۼ���/��: 2005. 9. 9 - ����ȣ
- * <li> ��� : ���� �ʿ��� ����Ʈ �ڵ带 ��Ÿ������ JDBC ���ҽ��� �����Ѵ�.
- * �� �ڵ�� JDBC ����̹��� �ε��Ǳ� ������ ����Ǿ�� �Ѵ�.
- * </ul>
- *
- * @author ����̻�
- */
 public class BootstrapServlet extends HttpServlet {
 
     static {

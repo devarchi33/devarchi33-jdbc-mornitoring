@@ -1,15 +1,5 @@
 package jdbc.monitor;
 
-/**
- * Ŭ���� ����.
- * <ul>
- * <li> �ۼ���/��: 2005. 9. 9
- * <li> ��� : SQL ���࿡ ���õ� ������ �����ϴ� ������ ���̴�. ���⿡�� Statement executeXXX �޼ҵ��� ���ۿ���
- * ������� ������ Exec���� �ʵ忡, ResulteSet �������� ������� ������ Patch���� �ʵ忡 �����Ѵ�.
- * </ul>
- * 
- * @author ����̻�
- */
 public class SQLExecDataModel {
 
     private long avgExecTime = 0;
