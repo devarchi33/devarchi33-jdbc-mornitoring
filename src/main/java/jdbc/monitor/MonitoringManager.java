@@ -8,6 +8,9 @@ import java.util.HashMap;
 import javassist.CannotCompileException;
 import javassist.NotFoundException;
 
+/**
+ * ClassFactory 를 이용하여 직접 클래스를 조작한다.
+ */
 public class MonitoringManager {
 
     private static MonitoringManager _instance;
@@ -22,7 +25,6 @@ public class MonitoringManager {
     private HashMap connectionList;
 
     // Log Writer 
-    // TODO: ���߿� Log4J�� �ٲ�� ����...
     private Log log;
 
     // Key:Value - Statement:ResourceDataModel
